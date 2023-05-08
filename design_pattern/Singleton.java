@@ -1,6 +1,6 @@
+package design_pattern;
 
-
-public  class Singleton
+public class Singleton
 {
     private static Singleton obj;
     // private constructor to force use of
