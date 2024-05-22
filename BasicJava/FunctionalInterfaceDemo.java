@@ -7,6 +7,12 @@ interface FunA{
     //void edit(); //this will give error because we are showing intent to compiler that we want functional interface using @FunctionalInterface annotation
 }
 
+@FunctionalInterface
+interface FunB{
+    int add(int a, int b);
+}
+
+
 
 public class FunctionalInterfaceDemo {
     public static void main(String[] args) {
@@ -24,10 +30,22 @@ public class FunctionalInterfaceDemo {
             System.out.println("res = "+ a+b);
         };
 
-        FunA ff = (int a)-> System.out.println("res = "+ a+20); // if single line then no need for brackets too!
+        FunA ff = (int a)-> System.out.println("res = "+ a); // if single line then no need for brackets too!
+
+        FunA fff = (a)-> System.out.println("res = "+ a); // no need to mention type of method variable also
+
+        FunA ffff =  a -> System.out.println("res = "+ a); // no parenthesis needed if only one variable
 
         f.show(10);
 
         ff.show(20);
+        fff.show(10);
+        ffff.show(12);
+
+//        FunB funB = (a, b) ->  return a+b; // if we have only one statement and that is return, then we need to write without return
+        FunB funB = (a, b) ->   a+b;
+
+        System.out.println(funB.add(10, 20));
+
     }
 }
